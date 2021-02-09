@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Everest</title>
+
+ 
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  
+  <link href="css/grayscale.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#documentation">Documentation</a>
+          </li>           
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+          </li>
+          <li class="nav-item">
+         	<a class="nav-link js-scroll-trigger" href="#example">Examples</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">Everest</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">conformancE Verification on tEsting ReactivE SysTems</h2>
+      </div>
+    </div>
+  </header>
+
+
+  <section id="about" class="about-section  bg-dark">
+    <div class="container">
+        <div class="col-lg-8 mx-auto">
+          <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <h2 class="text-white mb-4">Everest</h2>
+            <p class="text-white-50">Everest is a practical tool to check whether an implementation complies with its respective specification, and also generate complete test suites. The conformance checking is provided in a white-box testing mode, where the internal implementation behavior is known.            	
+            	<!--is an automatic conformance verification tool for testing reactive systems.-->
+              Implementations can be checked against their respective specifications based on a more general conformance relation using regular languages.
+              The classical IOCO relation is a particular case of the new conformance relation and it is also provided by the tool. Moreover, our tool
+can generate test suites in practical black-box testing scenarios.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="documentation" class="contact-section bg-light">
+     <div class="container">
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-5 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/toolArchitecture.PNG" alt="">
+        </div>
+        <div class="col-xl-1 col-lg-7"></div>
+        <div class="col-xl-6 col-lg-5">
+          <div class="featured-text text-center text-lg-left">       
+            <h4 class="text-black-50">Development</h4>
+              <p class="text-black-50 mb-0"> Everest is developed in Java and composed by four modules: View, Parser, Automaton Construction, and Verification & Generation.
+                Arrows indicate the data flow among the modules. </p>
+                <p class="text-black-50 mb-0">  The Swing library is used in the <b>View module</b> to create the interface that deals with input and output data.
+                The user can provide IUTs and specification models in Aldebaran format, the conformance verification mode, IOCO or language-based,
+				<!--and also--> 
+				the regular expressions that model (un)desirable behaviors, and the number of test cases to be generated. Verdicts of conformance testing and the associated details are produced by the tool on conformance verification. In the test suite generation can also be informed  an upper bound on the number of states of implementations to be covered, multi-graph and TPs can also be provided for the test generation and execution.
+                 </p>
+               <p class="text-black-50 mb-0">The <b>Parser module</b> checks if the IUT and the specification models given in Aldebaran files are valid.
+                 The <b>Automaton construction module</b> gets underlying automaton from IOLTS/LTS model and also the automaton that recognizes the regex received by the view.
+                 The process of checking conformance between IUT and specification, and test generation/run is performed by the <b>Verification & Generation module</b>.
+               </p>
+          </div>
+        </div>
+      </div>
+
+	   <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	        <div class="col-xl-6 col-lg-5">
+	          <div class="featured-text text-center text-lg-right">
+	            <h4 class="text-black-50">Aldebaran format (.aut)</h4>
+	              <p class="text-black-50 mb-0"> An example of Aldebaran file format and its corresponding model.
+	                Input labels are tagged by '?', and output labels are tagged by '!'. </p>
+	               <p class="text-black-50 mb-0">The header indicates the initial state, the number of transitions and the number of states, respectively. </p>
+	                <p class="text-black-50 mb-0">Each line below the header is a transition, which is defined as a tuple (s,l,p), where 's' is source state, 'l' is the label of transition and 'p' is the target state </p>
+
+	              <!--<p style="color: red"> (E cada linha indica uma transicao? pode ser na frente, so separado por espacos? e a transicao é como? uma tupla (s,a,p), onde s é origem, a o rotulo e p o destino?) </p> <p style="color: paleturquoise">coloquei parágrafo acima</p>-->
+	          </div>
+	        </div>
+
+	        <div class="col-xl-1 col-lg-7"></div>
+
+	        <div class="col-xl-5 col-lg-7">
+	          <img class="img-fluid mb-3 mb-lg-0" src="img/autModel.PNG" alt="">
+	        </div>
+	      </div>
+    </div>
+
+	   <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	        <div class="col-xl-1 col-lg-7"></div>
+	        <div class="col-xl-5 col-lg-7">
+	          <img class="img-fluid mb-3 mb-lg-0" src="img/viewConfig.PNG" alt="">
+	        </div>
+
+	        <div class="col-xl-1 col-lg-7"></div>
+	        <div class="col-xl-4 col-lg-5">
+	          <div class="featured-text text-center text-lg-left">
+	            <h4 class="text-black-50">Interface - Configuration</h4> <!--<p style="color: red">a ver devido as mudancas da interface. <p>-->
+	              <p class="text-black-50 mb-0">Fields: </p>
+	              <ul>
+	              	<li class="text-black-50"><b>Model:</b> inform the path where the specification model is in .aut file</li>
+	              	<li class="text-black-50"><b>Implementation:</b> inform the path where the implementation model is in .aut file</li>
+					<li class="text-black-50"> <b>Model type:</b> the models of implementation and specification are IOLTS ou LTS;</li>
+					 <li class="text-black-50"> <b>Label:</b> if the models are IOLTS must inform how to distinguish the inputs and output label, it's possible to do automatically if .aut file contains a label with tag '!' and '?', or  inputs and outputs labels can be manually informed;</li>
+	                <li class="text-black-50"><b>Input/output:</b> these fields will appear if is choose to inform manually the input and output labels of IOLTS;</li>	       
+	            </ul>
+	          </div>
+	        </div>
+	      </div>
+
+
+	       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	        <div class="col-xl-6 col-lg-5">
+	          <div class="featured-text text-center text-lg-left">
+	            <h4 class="text-black-50">Interface - IOCO Conformance</h4>
+	              <ul>
+	              	<li class="text-black-50"><b>view model/view IUT:</b> graphically display the model and IUT;</li>
+	              	<li class="text-black-50"><b>input labels/output labels:</b> partitioning between input and output labels in case of IOLTS models, or just the labels in case of LTS;</li>
+	              	<li class="text-black-50"><b># Test cases:</b> the number of test cases to be generated in case of verdict of non-conformance </li>
+	              	<li class="text-black-50"><b>verify:</b> clicking on the button will verify that the implementation complies with the specification. The conformance verdict is displayed in front of the button. In the case of non-conformance, Everest show test cases in the text area below;</li>
+	              	<li class="text-black-50"><b>warnings:</b> displays a message informing empty fields or incorrectly filled fields;</li>
+	              	
+	              </ul>	
+	          </div>
+	        </div>
+
+	        <div class="col-xl-1 col-lg-7"></div>
+
+	        <div class="col-xl-5 col-lg-7">
+	          <img class="img-fluid mb-3 mb-lg-0" src="img/viewIOCO.PNG" alt="">
+	        </div>
+	      </div>
+
+	       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	        <div class="col-xl-1 col-lg-7"></div>
+	        <div class="col-xl-5 col-lg-7">
+	          <img class="img-fluid mb-3 mb-lg-0" src="img/viewLang.PNG" alt="">
+	        </div>
+
+	        <div class="col-xl-1 col-lg-7"></div>
+	        <div class="col-xl-4 col-lg-5">
+	          <div class="featured-text text-center text-lg-left">
+	            <h4 class="text-black-50">Interface - Language-Based Conformance</h4>
+	              <p class="text-black-50 mb-0">Fields: </p>
+	              <ul>
+	              	<li class="text-black-50"><b>view model/view IUT:</b> graphically display the model and IUT;</li>
+	              	<li class="text-black-50"><b>input labels/output labels:</b> partitioning between input and output labels in case of IOLTS models, or just the labels in case of LTS;</li>
+	              	<li class="text-black-50"><b>Desirable behavior:</b> represents the desired behavior of implementation express in regex;</li>
+	                <li class="text-black-50"><b>Undesirable behavior:</b> represents the undesired behavior of implementation express in regex;</li>
+	                <li class="text-black-50"><b># Test cases:</b> the number of test cases to be generated in case of verdict of non-conformance </li>
+	              	<li class="text-black-50"><b>verify:</b> clicking on the button will verify that the implementation complies with the specification. The conformance verdict is displayed in front of the button. In the case of non-conformance, Everest show test cases in the text area below;</li>
+	              	<li class="text-black-50"><b>warnings:</b> displays a message informing empty fields or incorrectly filled fields;</li>
+	            </ul>
+	          </div>
+	        </div>
+	      </div>
+
+	       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	        <div class="col-xl-6 col-lg-5">
+	          <div class="featured-text text-center text-lg-left">
+	            <h4 class="text-black-50">Interface - Test Generation & Run</h4>
+	              <ul>
+	              	<li class="text-black-50"><b>view model/view IUT:</b> graphically display the model and IUT;</li>
+	              	<li class="text-black-50"><b>input labels/output labels:</b> partitioning between input and output labels;</li>
+	              	<li class="text-black-50"><b>#Max IUT states:</b> upper bound on the number of states of black-box implementations to be covered;</li>	                
+	                <li class="text-black-50"><b># Test purpose:</b> the number of test purposes to be generated in case of non-conformance verdict;</li>
+	              	<li class="text-black-50"><b>Multigraph:</b> the path where  the multigraph is (.aut file) to generate and run the tests;</li>
+	              	<li class="text-black-50"><b>Test purpose folder:</b> the directory containing the test purposes to be run;</li>
+
+	              	<li class="text-black-50"><b>Generate:</b> clicking on the button will generate the multigraph;</li>
+	              	<li class="text-black-50"><b>Test Generation + Run:</b> clicking on the button will generate the multigraph and test purposes;</li>
+	              	<li class="text-black-50"><b>Run:</b> clicking on the button will generate the test purposes and run on implementation;</li>
+	              	<li class="text-black-50"><b>Run TPs:</b> clicking on the button will run the test purposes on implementation;</li>
+
+	              	<li class="text-black-50"><b>warnings:</b> displays a message informing empty fields or incorrectly filled fields;</li>
+	              	
+	              </ul>	
+	          </div>
+	        </div>
+
+	        <div class="col-xl-1 col-lg-7"></div>
+
+	        <div class="col-xl-5 col-lg-7">
+	          <img class="img-fluid mb-3 mb-lg-0" src="img/viewRunGen.PNG" alt="">
+	        </div>
+	      </div>
+
+
+
+	       </div>
+	       </div>
+
+    </div>
+  </section>
+
+  <section id="download" class="projects-section bg-black">
+    <div class="container">
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/viewConfig.PNG" alt="">
+        </div>
+
+		<div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-5 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4 class="text-white-50 mb-0">Bytecode</h4>
+            <p class="text-white-50 mb-0">Everest is developed in Java and the Bytecode is available for download <a href="download/executable/everest.jar">click here.</a> </p>
+          </div>
+
+<div style="height: 30pt"></div>
+
+          <div class="featured-text text-center text-lg-left">
+            <h4 class="text-white-50 mb-0">Source Code</h4>
+            <p class="text-white-50 mb-0">The source code is available on the Gitlab Repository <a target="_blank" href="https://github.com/actool/vtool" class="mx-2">click here.</a>  </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="example" class="projects-section bg-light">
+    <div class="container">
+    	<h4>IOLTS Models</h4> 
+
+    	<div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-4 col-lg-7 text-center">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/models/spec-s.PNG" alt="">
+          <p><a href="download/aut/iolts-spec.aut" target="_blank"> download IOLTS(.aut) </a> </p>
+        </div>
+        <div class="col-xl-4 col-lg-7 text-center">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/models/impl-r.PNG" alt="">
+          <p> <a href="download/aut/iolts-impl-r.aut" target="_blank">download IOLTS(.aut)</a> </p>
+        </div>
+        <div class="col-xl-4 col-lg-7 text-center">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/models/impl-q.PNG" alt="">
+          <p>  <a href="download/aut/iolts-impl-q.aut" target="_blank">download IOLTS(.aut)</a> </p>
+        </div>
+    	</div>
+
+     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	        <div class="col-xl-5 col-lg-5">
+	          <div class="featured-text text-center text-lg-left">
+	            <h4 class="text-black-50">Configuration View</h4>
+	              <p>Using the above models, the configuration view must be filled in according to the figure on the side. The models are IOLTS. In .aut file, the input labels are started with '?' and output labels with '!'</p>
+	              </ul>	
+	          </div>
+	        </div>
+
+	        <div class="col-xl-1 col-lg-7"></div>
+
+	        <div class="col-xl-6 col-lg-7">
+	          <img class="img-fluid mb-3 mb-lg-0" src="img/example/conf-example-2.PNG" alt="">
+	        </div>
+	      </div>
+
+
+	<h4>Examples</h4> 
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/example/ioco-example-1.PNG" alt="">
+        </div>
+
+		<div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-5 col-lg-5">        
+          <div class="featured-text text-center text-lg-left">                                                     
+             	<p class="text-black-50"><b>Example 1:</b> The IOCO verification between the S and R models result in non-conformity, and the test cases generate are {b,aa,ba,aaa,ab,ax,abb,axb}.
+             	</p>             	
+             </ul>                  
+          </div>
+        </div>
+
+<div class="row align-items-center no-gutters mb-4 mb-lg-5">
+	 <div class="col-xl-5 col-lg-5">        
+          <div class="featured-text text-center text-lg-left">                                                                  	
+             	<p class="text-black-50"><b>Example 2a:</b> The IOCO verification between the S and Q models result in conformity.
+             	</p>             	
+             </ul>                  
+          </div>
+        </div>
+
+        <div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/example/ioco-example-2.PNG" alt="">
+        </div>       
+
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/example/lang-example-2.PNG" alt="">
+        </div>
+
+		<div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-5 col-lg-5">        
+          <div class="featured-text text-center text-lg-left">                                                                  	
+             	<p class="text-black-50"><b>Example 2b:</b> The language-based conformance verification using the models S, Q and regex D=(a|b)*ax and F=∅, result in non-conformity verdict, and the test cases generate are {ababax, abaabax}.
+             	</p>
+             </ul>                  
+          </div>
+        </div>
+
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+ <div class="col-xl-5 col-lg-5">        
+          <div class="featured-text text-center text-lg-left">                                                                  	
+             	<p class="text-black-50"><b>Example 3a:</b> The mutigraph generation using specification S, and the coverage of implementations with up to 4 states.
+             	</p>             	
+             </ul>                  
+          </div>
+        </div>
+
+        <div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/example/ger-example-1_.PNG" alt="">
+        </div>   
+
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/example/ger-example-2.PNG" alt="">
+        </div>
+
+		<div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-5 col-lg-5">        
+          <div class="featured-text text-center text-lg-left">                                                                  	
+             	<p class="text-black-50"><b>Example 3b:</b> The test purpose generation using multigraph (generated in Example 3a) and run on implementation R. The tool detected a fault when generated and executed the third test purpose.
+             	</p>
+             </ul>                  
+          </div>    
+ </div>
+     <div class="col-xl-5 col-lg-5">  
+          <div class="featured-text text-center text-lg-left">                                                                  	
+             	<p class="text-black-50"><b>Example 3c:</b> The test run using the test purposes at the 'TPs' folder (generated in Example 3b), and run on implementation R. A fault was found.
+             	</p>             	
+             </ul>                  
+          </div>
+        </div>
+
+        <div class="col-xl-1 col-lg-7"></div>
+
+        <div class="col-xl-6 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/example/ger-example-3.PNG" alt="">
+        </div>   
+       
+     
+    </div>
+  </section>
+
+
+
+
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+      Copyright &copy; Everest 2020
+    </div>
+  </footer>
+
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+  <script src="js/grayscale.min.js"></script>
+
+</body>
+
+</html>
